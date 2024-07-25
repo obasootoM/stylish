@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:stylish/%20model/product.dart';
@@ -11,16 +10,17 @@ import 'package:stylish/utilis/util.dart';
 
 class SearchService {
   Future<List<Product>> searchProduct(
-      BuildContext context, String query) async {
+      BuildContext context, String search) async {
     List<Product> product = [];
     final provider = Provider.of<AuthProvider>(context, listen: false);
     try {
       http.Response res = await http.get(
-          Uri.parse('$uri/api/product/query/$query'),
+          Uri.parse('$uri/api/product/query/$search'),
           headers: <String, String>{
             'content-type': 'application/json; charset=UTF-8',
             'x-auth-token': provider.user.token
           });
+    
       HttpResponseService(
           response: res,
           context: context,
@@ -28,6 +28,13 @@ class SearchService {
             for (int i = 0; i < jsonDecode(res.body).length; i++) {
               product
                   .add(Product.fromJson(jsonEncode(jsonDecode(res.body)[i])));
+              // if (query != null) {
+              //   product = product
+              //       .where((element) => element.title
+              //           .toLowerCase()
+              //           .contains(query.toLowerCase()))
+              //       .toList();
+              // }
             }
           });
     } catch (e) {

@@ -12,11 +12,14 @@ class BottomNavBar extends StatefulWidget {
 
 class _BottomNavBarState extends State<BottomNavBar> {
   int currentIndex = 0;
+
   List<Widget> itemList = [
     const OnboardingScreens(),
-    Center(child: const Text('cart')),
-     const SearchScreen(),
-    Center(child: const Text('setting')),
+    const Center(child: Text('cart')),
+    SearchScreen(
+      search: '',
+    ),
+    const Center(child: Text('setting')),
   ];
   void changePage(int index) {
     setState(() {
@@ -27,13 +30,10 @@ class _BottomNavBarState extends State<BottomNavBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       bottomNavigationBar: BottomNavigationBar(
-        selectedItemColor: const Color.fromARGB(255, 233, 12, 12),
-        selectedIconTheme: const IconThemeData(
-          fill: 1.0,
-          color:  Color.fromARGB(255, 233, 12, 12)
-        ),
+          selectedItemColor: const Color.fromARGB(255, 233, 12, 12),
+          selectedIconTheme: const IconThemeData(
+              fill: 1.0, color: Color.fromARGB(255, 233, 12, 12)),
           currentIndex: currentIndex,
           type: BottomNavigationBarType.fixed,
           onTap: changePage,

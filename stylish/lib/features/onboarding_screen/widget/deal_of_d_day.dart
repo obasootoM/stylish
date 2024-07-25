@@ -14,7 +14,7 @@ class DealOfTheDay extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.only(top: 10, left: 20),
       width: width * 0.9,
-      height: height * 0.1,
+      height: height * 0.11,
       decoration: BoxDecoration(
           color: const Color.fromARGB(255, 44, 142, 223),
           borderRadius: BorderRadius.circular(10)),
@@ -31,8 +31,9 @@ class DealOfTheDay extends StatelessWidget {
                     fontWeight: FontWeight.w800,
                     color: Colors.white,
                     size: 20),
+                  SizedBox(height: 10,),
                 ArrowButton(
-                    margin: EdgeInsets.only(top: 20, right: 10),
+                    margin: EdgeInsets.only(top: 23, right: 10),
                     text: 'View All',
                     textColor: Colors.white,
                     backgroundcolors: Colors.transparent),
@@ -40,7 +41,7 @@ class DealOfTheDay extends StatelessWidget {
           Row(
             children: [
               Container(
-                margin: EdgeInsets.only(left: 10),
+                margin: const EdgeInsets.only(left: 10),
                 child: const Icon(Icons.timer,color: Colors.white,)),
               CommonText(
                   text:text , fontWeight: FontWeight.bold, color: Colors.white, size: 15)

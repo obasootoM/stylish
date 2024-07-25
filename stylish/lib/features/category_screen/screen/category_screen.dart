@@ -7,6 +7,7 @@ import 'package:stylish/features/category_screen/service/service.dart';
 import '../../admin/widget/admin_container.dart';
 
 class CategoryScreen extends StatefulWidget {
+  static const routeName = '/category-screen';
   const CategoryScreen({super.key, required this.category});
   final String category;
   @override
@@ -16,7 +17,7 @@ class CategoryScreen extends StatefulWidget {
 class _CategoryScreeState extends State<CategoryScreen> {
   final Service _service = Service();
   List<Product>? _product;
-
+  @override
   void initState() {
     super.initState();
     fetchCategory();
@@ -35,7 +36,7 @@ class _CategoryScreeState extends State<CategoryScreen> {
     return Scaffold(
       backgroundColor: Colors.grey[200],
       appBar: AppBar(
-        leading: Text(''),
+        leading: const Text(''),
         backgroundColor: Colors.grey[200],
         centerTitle: true,
         title: CommonText(
@@ -75,7 +76,9 @@ class _CategoryScreeState extends State<CategoryScreen> {
                         final product = _product![index];
                         return Container(
                           margin: const EdgeInsets.only(
-                              left: 10, top: 10, ),
+                            left: 10,
+                            top: 10,
+                          ),
                           width: width * 0.5,
                           child: Card(
                             elevation: 2.0,
@@ -93,7 +96,7 @@ class _CategoryScreeState extends State<CategoryScreen> {
                                   ),
                                 ),
                                 CommonText(
-                                  margin: EdgeInsets.only(left: 10),
+                                    margin: const EdgeInsets.only(left: 10),
                                     text: product.title,
                                     fontWeight: FontWeight.bold,
                                     color: Colors.black,

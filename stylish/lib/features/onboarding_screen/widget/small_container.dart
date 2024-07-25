@@ -14,11 +14,12 @@ class SmallContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    
     final width = MediaQuery.sizeOf(context).width;
     final height = MediaQuery.sizeOf(context).height;
     return Container(
       margin: const EdgeInsets.only(right: 20),
-      width: width * 0.13,
+      width: width * 0.14,
       height: height * 0.03,
       decoration: BoxDecoration(
           color: Colors.white, borderRadius: BorderRadius.circular(2)),

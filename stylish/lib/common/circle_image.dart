@@ -13,16 +13,20 @@ class CircleImage extends StatelessWidget {
       padding: const EdgeInsets.all(20),
       child: GestureDetector(
         onTap: onTap,
-        child: Container(
-          width: width * 0.15,
-          height: height * 0.07,
-          decoration: BoxDecoration(
-              border: Border.all(
-                  width: 1, style: BorderStyle.solid, color: Colors.red),
-              color: Colors.grey[200],
-              borderRadius: BorderRadius.circular(50)),
+        child: CircleAvatar(
+
           child: Center(child: Image.asset(image)),
-        ),
+        )
+        // Container(
+        //   width: width * 0.15,
+        //   height: height * 0.07,
+        //   decoration: BoxDecoration(
+        //       border: Border.all(
+        //           width: 1, style: BorderStyle.solid, color: Colors.red),
+        //       color: Colors.grey[200],
+        //       borderRadius: BorderRadius.circular(50)),
+        //   child: Center(child: Image.asset(image)),
+        // ),
       ),
     );
   }

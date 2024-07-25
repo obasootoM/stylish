@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:stylish/common/common_text.dart';
 import 'package:stylish/const/loading.dart';
+import 'package:stylish/const/rating.dart';
 import 'package:stylish/features/admin/service/service.dart';
-
 import '../../../ model/product.dart';
 
 class ProductContainer extends StatefulWidget {
@@ -26,19 +26,21 @@ class _ProductContainerState extends State<ProductContainer> {
     setState(() {});
   }
 
+  double star = 0.0;
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.sizeOf(context).width;
     final height = MediaQuery.sizeOf(context).height;
     return _product == null
-        ? ConstLoading()
+        ?  const ConstLoading()
         : GridView.builder(
+            scrollDirection: Axis.horizontal,
             keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.manual,
             shrinkWrap: true,
             physics: widget.physics,
             itemCount: _product!.length,
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
+               crossAxisCount: 1,
                 childAspectRatio: 0.73,
                 mainAxisSpacing: 0,
                 crossAxisSpacing: 0.5),
@@ -85,18 +87,13 @@ class _ProductContainerState extends State<ProductContainer> {
                         ),
                       ),
                       CommonText(
-                        margin: EdgeInsets.only(left: 10),
+                        margin: const EdgeInsets.only(left: 10),
                         color: Colors.black,
                         fontWeight: FontWeight.normal,
                         size: 15,
                         text: '\$${product.price}',
                       ),
-                      CommonText(
-                          margin: EdgeInsets.only(left: 10),
-                          text: 'rating',
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black,
-                          size: 10),
+                      RatingBars(star: star)
                     ],
                   ),
                 ),

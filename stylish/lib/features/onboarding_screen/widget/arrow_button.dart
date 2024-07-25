@@ -17,11 +17,11 @@ class ArrowButton extends StatelessWidget {
     final height = MediaQuery.sizeOf(context).height;
     return Container(
       margin: margin,
-      width: width * 0.27,
-      height: height * 0.04,
+      width: width * 0.32,
+      height: height * 0.05,
       decoration: BoxDecoration(
         color: backgroundcolors,
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: BorderRadius.circular(5),
         border: Border.all(width: 0.5, color: Colors.white),
       ),
       child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [

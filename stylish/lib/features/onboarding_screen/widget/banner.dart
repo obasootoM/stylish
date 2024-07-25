@@ -22,9 +22,12 @@ class Banners extends StatelessWidget {
           return Padding(
             padding: const EdgeInsets.all(8.0),
             child: Container(
+              constraints: const BoxConstraints(
+                minHeight: 100,
+                minWidth: 100              ),
               margin: const EdgeInsets.only(top: 10,left: 10,right: 10),
               width: width * 0.9,
-              height: height * 0.3,
+              height: height * 0.25,
               decoration: ShapeDecoration(
                   color: const Color.fromARGB(255, 240, 165, 165),
                   shape: RoundedRectangleBorder(
@@ -45,7 +48,7 @@ class Banners extends StatelessWidget {
                         color: Colors.white,
                         size: 15),
                     const ArrowButton(
-                      margin: EdgeInsets.only(left: 10, top: 10),
+                      margin: EdgeInsets.only(left: 10, top: 10,bottom: 10),
                       text: 'Shop Now',
                       textColor: Colors.white,
                       backgroundcolors: Colors.transparent,

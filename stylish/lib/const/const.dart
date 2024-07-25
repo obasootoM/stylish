@@ -30,6 +30,10 @@ class ConstImage {
   static const setting = '$imagePath/settings.png';
   static const search = '$imagePath/search 1.png';
   static const shoppingCart = '$imagePath/shopping-cart 2.png';
+  static const maskGroup3 = '$imagePath/Mask Group 3.png';
+  static const maskGroup4 = '$imagePath/Mask Group 4.png';
+  static const Rectangle56 = '$imagePath/Rectangle 56.png';
+
 }
 const String uri = 'http://192.168.0.200:3000';
 

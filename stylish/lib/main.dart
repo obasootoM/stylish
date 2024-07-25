@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:stylish/features/authentication/signIn/service/sign_in_service.dart';
 import 'package:stylish/features/splash_screen/splash_screen.dart';
 import 'package:stylish/provider/provider.dart';
+import 'package:stylish/route/route.dart';
 
 void main() {
   runApp(MultiProvider(
@@ -36,6 +37,7 @@ class _MyAppState extends State<MyApp> {
         useMaterial3: true,
       ),
       home: const LandingScreen(),
+      onGenerateRoute: (setting) => generateRoute(setting),
     );
   }
 }

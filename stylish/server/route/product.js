@@ -15,9 +15,10 @@ productRoute.get('/api/product',auth, async(req, res) => {
 productRoute.get('/api/product/query/:title', auth, async(req, res) => {
   try {
       let product = await Product.find({
-         title: {$reges: req.params.title, $options: 'i'}
+         title: {$regex: req.params.title, $options: 'i'}
       })
       res.json(product);
+      
   }catch(e) {
      res.status(500).json({error: e.message});
   }

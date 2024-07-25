@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
 import 'package:stylish/%20model/product.dart';
 import 'package:stylish/common/common_text.dart';
 import 'package:stylish/const/loading.dart';
+import 'package:stylish/const/rating.dart';
 import 'package:stylish/features/admin/service/service.dart';
 
 class SearchContainer extends StatefulWidget {
@@ -19,7 +21,9 @@ class _SearchContainerState extends State<SearchContainer> {
     getProduct();
     super.initState();
   }
-
+   Future<void> liquidRefresh() async {
+    return await Future.delayed(const Duration(seconds: 3));
+  }
   void getProduct() async {
     _product = await _service.getProduct(context);
     setState(() {});
@@ -31,76 +35,74 @@ class _SearchContainerState extends State<SearchContainer> {
     final height = MediaQuery.sizeOf(context).height;
     return  _product == null
         ? const ConstLoading()
-        : GridView.builder(
-            shrinkWrap: true,
-            physics: const NeverScrollableScrollPhysics(),
-            itemCount: _product!.length,
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                childAspectRatio: 0.73,
-                mainAxisSpacing: 0,
-                crossAxisSpacing: 0.5),
-            itemBuilder: (context, index) {
-              final product = _product![index];
-              return Container(
-                margin: const EdgeInsets.only(left: 10, right: 15),
-                width: width * 0.5,
-                child: Card(
-                surfaceTintColor: Colors.white,
-                  shadowColor: Colors.black,
-                  elevation: 2.0,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(10),
-                        child: Container(
-                          width: width * 0.5,
-                          height: height * 0.2,
-                          color: Colors.grey,
-                          child: Image.network(
-                            product.images[0],
-                            fit: BoxFit.fill,
+        : LiquidPullToRefresh(
+          onRefresh: liquidRefresh,
+          child: GridView.builder(
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              itemCount: _product!.length,
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  childAspectRatio: 0.73,
+                  mainAxisSpacing: 0,
+                  crossAxisSpacing: 0.5),
+              itemBuilder: (context, index) {
+                final product = _product![index];
+                return Container(
+                  margin: const EdgeInsets.only(left: 10, right: 15),
+                  width: width * 0.5,
+                  child: Card(
+                  surfaceTintColor: Colors.white,
+                    shadowColor: Colors.black,
+                    elevation: 2.0,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(10),
+                          child: Container(
+                            width: width * 0.5,
+                            height: height * 0.2,
+                            color: Colors.grey,
+                            child: Image.network(
+                              product.images[0],
+                              fit: BoxFit.fill,
+                            ),
                           ),
                         ),
-                      ),
-                      CommonText(
-                          margin: const EdgeInsets.only(
-                            left: 10,
+                        CommonText(
+                            margin: const EdgeInsets.only(
+                              left: 10,
+                            ),
+                            text: product.title,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black,
+                            size: 15),
+                        Container(
+                          margin: const EdgeInsets.only(left: 10),
+                          child: Text(
+                           product.description,
+                            maxLines: 2,
+                            style: const TextStyle(
+                                fontSize: 12,
+                                fontWeight: FontWeight.normal,
+                                overflow: TextOverflow.ellipsis),
                           ),
-                          text: product.title,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black,
-                          size: 15),
-                      Container(
-                        margin: const EdgeInsets.only(left: 10),
-                        child: Text(
-                         product.description,
-                          maxLines: 2,
-                          style: const TextStyle(
-                              fontSize: 12,
-                              fontWeight: FontWeight.normal,
-                              overflow: TextOverflow.ellipsis),
                         ),
-                      ),
-                      CommonText(
-                        margin: EdgeInsets.only(left: 10),
-                        color: Colors.black,
-                        fontWeight: FontWeight.normal,
-                        size: 15,
-                        text: '\$${product.price}',
-                      ),
-                      CommonText(
-                          margin: EdgeInsets.only(left: 10),
-                          text: 'rating',
-                          fontWeight: FontWeight.bold,
+                        CommonText(
+                          margin: const EdgeInsets.only(left: 10),
                           color: Colors.black,
-                          size: 10),
-                    ],
+                          fontWeight: FontWeight.normal,
+                          size: 15,
+                          text: '\$${product.price}',
+                        ),
+                         const RatingBars(star: 0.0)
+                      ],
+                    ),
                   ),
-                ),
-              );
-            },
-          );
+                );
+              },
+            ),
+        );
   }
   }

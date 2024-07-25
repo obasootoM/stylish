@@ -102,7 +102,13 @@ class Service {
                 'x-auth-token': provider.user.token
               },
               body: jsonEncode({'id': product.id}));
-      HttpResponseService(response: res, context: context, success: callback);
+      HttpResponseService(
+          response: res,
+          context: context,
+          success: () {
+            callback;
+            showSnackBar(context, 'product deleted');
+          });
     } catch (e) {
       showSnackBar(context, e.toString());
     }

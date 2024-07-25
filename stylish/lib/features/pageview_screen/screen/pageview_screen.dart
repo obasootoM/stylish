@@ -5,6 +5,7 @@ import 'package:stylish/common/common_text.dart';
 import '../../authentication/signIn/screen/sign_in.dart';
 
 class OnboardingScreen extends StatefulWidget {
+  static const routeName = '/onboarding-screen';
   const OnboardingScreen({super.key});
 
   @override
@@ -77,8 +78,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       fontWeight: FontWeight.normal,
                       color: Colors.black,
                       size: 13),
-                   SizedBox(
-                    height: height *0.25,
+                  SizedBox(
+                    height: height * 0.25,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,

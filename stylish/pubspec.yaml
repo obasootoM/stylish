@@ -45,6 +45,8 @@ dependencies:
   cloudinary_public: ^0.23.1
   flutter_rating_bar: ^4.0.1
   badges: ^3.1.2
+  intl: ^0.19.0
+  liquid_pull_to_refresh: ^3.0.1
   
   
 

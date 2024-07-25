@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:stylish/features/category_screen/screen/category_screen.dart';
-
 import '../../../ model/onboarding_model.dart';
 import '../../../common/common_text.dart';
 
@@ -21,6 +20,14 @@ class _ListcategoryState extends State<Listcategory> {
             builder: (context) => CategoryScreen(category: category)));
   }
 
+  bool isDesktop(BuildContext context) {
+    return MediaQuery.of(context).size.width >= 600;
+  }
+
+  bool isMobile(BuildContext context) {
+    return MediaQuery.of(context).size.width < 600;
+  }
+
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.sizeOf(context).width;
@@ -28,7 +35,7 @@ class _ListcategoryState extends State<Listcategory> {
     return Container(
       margin: const EdgeInsets.only(top: 10, left: 20),
       width: width * 0.9,
-      height: height * 0.13,
+      height: height * 0.15,
       decoration: ShapeDecoration(
           color: Colors.white,
           shape:
