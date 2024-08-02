@@ -33,7 +33,7 @@ class ConstImage {
   static const maskGroup3 = '$imagePath/Mask Group 3.png';
   static const maskGroup4 = '$imagePath/Mask Group 4.png';
   static const Rectangle56 = '$imagePath/Rectangle 56.png';
-
+  static const emoji = '$imagePath/😱.png';
 }
 const String uri = 'http://192.168.0.200:3000';
 

@@ -5,6 +5,8 @@ import 'package:stylish/features/splash_screen/splash_screen.dart';
 import 'package:stylish/provider/provider.dart';
 import 'package:stylish/route/route.dart';
 
+
+
 void main() {
   runApp(MultiProvider(
       providers: [ChangeNotifierProvider(create: (context) => AuthProvider())],
@@ -30,14 +32,13 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const LandingScreen(),
-      onGenerateRoute: (setting) => generateRoute(setting),
-    );
+        title: 'Flutter Demo',
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          useMaterial3: true,
+        ),
+        home: const LandingScreen(),
+        onGenerateRoute: (setting) => generateRoute(setting));
   }
 }

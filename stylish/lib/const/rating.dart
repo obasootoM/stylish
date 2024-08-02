@@ -10,7 +10,7 @@ class RatingBars extends StatelessWidget {
       margin: const EdgeInsets.only(left: 10),
       child: RatingBarIndicator(
           itemCount: 5,
-          itemSize: 18,
+          itemSize: 15,
           rating: star,
           direction: Axis.horizontal,
           itemBuilder: (context, _) {

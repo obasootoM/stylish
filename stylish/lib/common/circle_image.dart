@@ -7,11 +7,11 @@ class CircleImage extends StatelessWidget {
   final VoidCallback onTap;
   @override
   Widget build(BuildContext context) {
-    final width = MediaQuery.sizeOf(context).width;
-    final height = MediaQuery.sizeOf(context).height;
+    // final width = MediaQuery.sizeOf(context).width;
+    // final height = MediaQuery.sizeOf(context).height;
     return Padding(
       padding: const EdgeInsets.all(20),
-      child: GestureDetector(
+      child: InkWell(
         onTap: onTap,
         child: CircleAvatar(
 

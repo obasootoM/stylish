@@ -73,16 +73,16 @@ class _SignInState extends State<SignIn> {
                   CommonTextField(
                     hintext: 'Password',
                     prefixIcon: Image.asset(ConstImage.group2),
-                    onTap: () {
-                      setState(() {
-                        obScure = !obScure;
-                      });
-                    },
                     obscure: obScure,
                     controller: _password,
-                    suffixIcon: obScure
-                        ? const Icon(Icons.visibility)
-                        : const Icon(Icons.visibility_off),
+                    suffixIcon: InkWell(
+                        onTap: () {
+                         setState(() {
+                            obScure = !obScure;
+                         });
+                        },
+                        child: Icon(
+                            obScure ? Icons.visibility : Icons.visibility_off)),
                     inputType: TextInputType.visiblePassword,
                     focusNode: _focusNodePassword,
                   ),
@@ -169,6 +169,7 @@ class _SignInState extends State<SignIn> {
                             fontWeight: FontWeight.bold,
                             color: Color.fromARGB(255, 245, 31, 15),
                             size: 15,
+                            textDecoration: TextDecoration.underline,
                           ))
                     ],
                   )

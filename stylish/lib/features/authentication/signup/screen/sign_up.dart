@@ -88,14 +88,14 @@ class _SignUpState extends State<SignUp> {
                 prefixIcon: Image.asset(ConstImage.group2),
                 obscure: obsurePass,
                 controller: _password,
-                onTap: () {
-                  setState(() {
-                    obsurePass = !obsurePass;
-                  });
-                },
-                suffixIcon: obsurePass
-                    ? const Icon(Icons.visibility)
-                    : const Icon(Icons.visibility_off),
+                suffixIcon: InkWell(
+                  onTap: () {
+                    setState(() {
+                      obsurePass = !obsurePass;
+                    });
+                  },
+                  child: Icon(obsurePass ? Icons.visibility : Icons.visibility_off),
+                ),
                 inputType: TextInputType.visiblePassword,
                 focusNode: _focusNodePassword,
               ),
@@ -163,6 +163,7 @@ class _SignUpState extends State<SignUp> {
                         fontWeight: FontWeight.bold,
                         color: Color.fromARGB(255, 245, 31, 15),
                         size: 15,
+                        textDecoration: TextDecoration.underline,
                       ))
                 ],
               )

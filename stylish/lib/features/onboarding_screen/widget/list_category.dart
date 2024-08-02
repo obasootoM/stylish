@@ -35,7 +35,7 @@ class _ListcategoryState extends State<Listcategory> {
     return Container(
       margin: const EdgeInsets.only(top: 10, left: 20),
       width: width * 0.9,
-      height: height * 0.15,
+      height: height * 0.1,
       decoration: ShapeDecoration(
           color: Colors.white,
           shape:
@@ -46,24 +46,30 @@ class _ListcategoryState extends State<Listcategory> {
         itemCount: imageList.length,
         itemBuilder: (context, index) {
           return Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              GestureDetector(
+              InkWell(
                 onTap: () {
                   navigateToCategoryScreen(context, imageList[index]['text']);
                 },
                 child: Container(
-                  margin: const EdgeInsets.all(10),
+                  margin: const EdgeInsets.only(left: 10),
                   width: width * 0.15,
                   height: height * 0.07,
-                  decoration: const ShapeDecoration(
-                      color: Colors.grey,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(30)))),
-                  child: Image.asset(
-                    imageList[index]['image'],
-                    fit: BoxFit.fill,
-                  ),
-                ),
+                  child: CircleAvatar(child: Image.asset(imageList[index]['image'], fit: BoxFit.fill,),))
+                // Container(
+                //   margin: const EdgeInsets.all(10),
+                //   width: width * 0.15,
+                //   height: height * 0.07,
+                //   decoration: const ShapeDecoration(
+                //       color: Colors.grey,
+                //       shape: RoundedRectangleBorder(
+                //           borderRadius: BorderRadius.all(Radius.circular(30)))),
+                //   child: Image.asset(
+                //     imageList[index]['image'],
+                //     fit: BoxFit.fill,
+                //   ),
+                // ),
               ),
               CommonText(
                   text: imageList[index]['text'],

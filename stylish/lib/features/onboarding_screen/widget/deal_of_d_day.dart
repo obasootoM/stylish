@@ -4,9 +4,16 @@ import 'package:stylish/features/onboarding_screen/widget/arrow_button.dart';
 
 class DealOfTheDay extends StatelessWidget {
   const DealOfTheDay({
-    super.key,  required this.text,
+    super.key,
+    required this.text,
+    required this.dealText,
+    required this.backgroundColor, 
+    required this.icon,
   });
   final String text;
+  final String dealText;
+  final Color backgroundColor;
+  final IconData icon;
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.sizeOf(context).width;
@@ -16,24 +23,26 @@ class DealOfTheDay extends StatelessWidget {
       width: width * 0.9,
       height: height * 0.11,
       decoration: BoxDecoration(
-          color: const Color.fromARGB(255, 44, 142, 223),
-          borderRadius: BorderRadius.circular(10)),
-      child:  Column(
+          color: backgroundColor, borderRadius: BorderRadius.circular(10)),
+      child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Row(
+          Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 CommonText(
-                    margin: EdgeInsets.only(left: 20),
-                    text: 'Deal of the Day',
+                    margin: const EdgeInsets.only(left: 20),
+                    text: dealText,
                     fontWeight: FontWeight.w800,
                     color: Colors.white,
                     size: 20),
-                  SizedBox(height: 10,),
+                const SizedBox(
+                  height: 10,
+                ),
                 ArrowButton(
-                    margin: EdgeInsets.only(top: 23, right: 10),
+                    margin: const EdgeInsets.only(top: 23, right: 10),
+                    widths: width * 0.32,
                     text: 'View All',
                     textColor: Colors.white,
                     backgroundcolors: Colors.transparent),
@@ -41,10 +50,16 @@ class DealOfTheDay extends StatelessWidget {
           Row(
             children: [
               Container(
-                margin: const EdgeInsets.only(left: 10),
-                child: const Icon(Icons.timer,color: Colors.white,)),
+                  margin: const EdgeInsets.only(left: 10),
+                  child: Icon(
+                    icon,
+                    color: Colors.white,
+                  )),
               CommonText(
-                  text:text , fontWeight: FontWeight.bold, color: Colors.white, size: 15)
+                  text: text,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                  size: 15)
             ],
           )
         ],

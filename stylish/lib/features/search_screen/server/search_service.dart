@@ -28,13 +28,6 @@ class SearchService {
             for (int i = 0; i < jsonDecode(res.body).length; i++) {
               product
                   .add(Product.fromJson(jsonEncode(jsonDecode(res.body)[i])));
-              // if (query != null) {
-              //   product = product
-              //       .where((element) => element.title
-              //           .toLowerCase()
-              //           .contains(query.toLowerCase()))
-              //       .toList();
-              // }
             }
           });
     } catch (e) {

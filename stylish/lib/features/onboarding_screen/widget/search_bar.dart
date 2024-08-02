@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 
-
 class SearchBars extends StatelessWidget {
-  const SearchBars({super.key, required this.focusNode, this.onTap, this.onsubmitted});
+  const SearchBars(
+      {super.key, required this.focusNode, this.onTap, this.onsubmitted, this.onChanged, this.controller});
   final FocusNode focusNode;
   final VoidCallback? onTap;
   final Function(String)? onsubmitted;
+  final Function(String)? onChanged;
+  final TextEditingController? controller;
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.sizeOf(context).width;
@@ -18,7 +20,9 @@ class SearchBars extends StatelessWidget {
         decoration: BoxDecoration(
             color: Colors.white, borderRadius: BorderRadius.circular(5)),
         child: TextField(
+          controller: controller,
           onSubmitted: onsubmitted,
+          onChanged: onChanged,
           onTap: onTap,
           decoration: InputDecoration(
               hintText: 'search any product',

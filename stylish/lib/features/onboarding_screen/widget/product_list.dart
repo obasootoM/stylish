@@ -33,72 +33,76 @@ class _ProductContainerState extends State<ProductContainer> {
     final height = MediaQuery.sizeOf(context).height;
     return _product == null
         ?  const ConstLoading()
-        : GridView.builder(
+        :  Container(
+          height: height * 0.31,
+          child: ListView.builder(
             scrollDirection: Axis.horizontal,
-            keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.manual,
-            shrinkWrap: true,
-            physics: widget.physics,
-            itemCount: _product!.length,
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-               crossAxisCount: 1,
-                childAspectRatio: 0.73,
-                mainAxisSpacing: 0,
-                crossAxisSpacing: 0.5),
-            itemBuilder: (context, index) {
-              final product = _product![index];
-              return Container(
-                margin: const EdgeInsets.only(left: 10, right: 15),
-                width: width * 0.5,
-                child: Card(
-                  surfaceTintColor: Colors.white,
-                  elevation: 2.0,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(10),
-                        child: Container(
-                          width: width * 0.5,
-                          height: height * 0.2,
-                          color: Colors.grey,
-                          child: Image.network(
-                            product.images[0],
-                            fit: BoxFit.fill,
+                keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.manual,
+                shrinkWrap: true,
+                physics: const AlwaysScrollableScrollPhysics(),
+                itemCount: _product!.length,
+                itemBuilder: (context, index) {
+                  final product = _product![index];
+                  return Container(
+                    margin: const EdgeInsets.only(left: 8, right: 8),
+                    width: width * 0.5,
+                    child: Card(
+                      surfaceTintColor: Colors.white,
+                      elevation: 2.0,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(10),
+                            child: Container(
+                              width: width * 0.5,
+                              height: height * 0.2,
+                              color: Colors.grey,
+                              child: Image.network(
+                                product.images[0],
+                                fit: BoxFit.fill,
+                              ),
+                            ),
                           ),
-                        ),
-                      ),
-                      CommonText(
-                          margin: const EdgeInsets.only(
-                            left: 10,
+                          Expanded(
+                            child: CommonText(
+                                margin: const EdgeInsets.only(
+                                  left: 10,
+                                ),
+                                text: product.title,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black,
+                                size: 15),
                           ),
-                          text: product.title,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black,
-                          size: 15),
-                      Container(
-                        margin: const EdgeInsets.only(left: 10),
-                        child: Text(
-                          product.description,
-                          maxLines: 2,
-                          style: const TextStyle(
-                              fontSize: 12,
+                          Expanded(
+                            child: Container(
+                              margin: const EdgeInsets.only(left: 10),
+                              child: Text(
+                                product.description,
+                                maxLines: 2,
+                                style: const TextStyle(
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.normal,
+                                    overflow: TextOverflow.ellipsis),
+                              ),
+                            ),
+                          ),
+                          Expanded(
+                            child: CommonText(
+                              margin: const EdgeInsets.only(left: 10),
+                              color: Colors.black,
                               fontWeight: FontWeight.normal,
-                              overflow: TextOverflow.ellipsis),
-                        ),
+                              size: 15,
+                              text: '\$${product.price}',
+                            ),
+                          ),
+                          Expanded(child: RatingBars(star: star))
+                        ],
                       ),
-                      CommonText(
-                        margin: const EdgeInsets.only(left: 10),
-                        color: Colors.black,
-                        fontWeight: FontWeight.normal,
-                        size: 15,
-                        text: '\$${product.price}',
-                      ),
-                      RatingBars(star: star)
-                    ],
-                  ),
-                ),
-              );
-            },
-          );
+                    ),
+                  );
+                },
+          ),
+        );
   }
 }

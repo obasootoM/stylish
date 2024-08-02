@@ -6,18 +6,20 @@ class ArrowButton extends StatelessWidget {
       {super.key,
       required this.text,
       required this.textColor,
-      required this.backgroundcolors, required this.margin});
+      this.widths = 100,
+      required this.backgroundcolors,
+      required this.margin});
   final String text;
   final Color textColor;
   final Color backgroundcolors;
   final EdgeInsets margin;
+  final double widths;
   @override
   Widget build(BuildContext context) {
-    final width = MediaQuery.sizeOf(context).width;
     final height = MediaQuery.sizeOf(context).height;
     return Container(
       margin: margin,
-      width: width * 0.32,
+      width: widths,//width * 0.32
       height: height * 0.05,
       decoration: BoxDecoration(
         color: backgroundcolors,
