@@ -5,6 +5,7 @@ import 'package:stylish/common/common_text.dart';
 import 'package:stylish/const/loading.dart';
 import 'package:stylish/const/rating.dart';
 import 'package:stylish/features/admin/service/service.dart';
+import 'package:stylish/utilis/refresh.dart';
 
 import '../../puchase_detailed_screen/screen/purchase_detailed_screen.dart';
 
@@ -39,7 +40,7 @@ class _SearchContainerState extends State<SearchContainer> {
     final width = MediaQuery.sizeOf(context).width;
     final height = MediaQuery.sizeOf(context).height;
     return _product == null
-        ? const ConstLoading()
+        ? const Refresh()
         : GridView.builder(
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),

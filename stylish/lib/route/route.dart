@@ -6,6 +6,7 @@ import 'package:stylish/features/onboarding_screen/widget/onboard_search_screen.
 import 'package:stylish/features/pageview_screen/screen/pageview_screen.dart';
 import 'package:stylish/features/puchase_detailed_screen/screen/purchase_detailed_screen.dart';
 import 'package:stylish/features/search_screen/screen/search_screen.dart';
+import 'package:stylish/features/wishList/screen/wish_list.dart';
 
 Route<dynamic> generateRoute(RouteSettings routeSettings) {
   switch (routeSettings.name) {
@@ -40,7 +41,12 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
       var product = routeSettings.arguments as Product;
       return MaterialPageRoute(
           settings: routeSettings,
-          builder: (_) =>  PurchaseDetailedScreen(product: product,));
+          builder: (_) => PurchaseDetailedScreen(
+                product: product,
+              ));
+    case WishListScreen.routeName:
+      return MaterialPageRoute(
+          builder: (_) => const WishListScreen(), settings: routeSettings);
     default:
       return MaterialPageRoute(
           settings: routeSettings,

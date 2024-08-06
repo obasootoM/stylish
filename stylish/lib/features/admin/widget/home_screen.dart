@@ -5,6 +5,7 @@ import 'package:stylish/const/loading.dart';
 import 'package:stylish/features/admin/service/service.dart';
 import 'package:stylish/features/admin/widget/add_product.dart';
 import 'package:stylish/features/admin/widget/admin_container.dart';
+import 'package:stylish/utilis/refresh.dart';
 import '../../../const/const.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -74,7 +75,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ),
       body: _product == null
-          ? const ConstLoading()
+          ? const Refresh()
           : GridView.builder(
               shrinkWrap: true,
               itemCount: _product!.length,

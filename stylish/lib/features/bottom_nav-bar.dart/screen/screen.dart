@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:stylish/const/const.dart';
 import 'package:stylish/features/onboarding_screen/screen/onboarding_screen.dart';
 import 'package:stylish/features/search_screen/screen/search_screen.dart';
+import 'package:stylish/features/wishList/screen/wish_list.dart';
 
 class BottomNavBar extends StatefulWidget {
   const BottomNavBar({super.key});
@@ -15,10 +16,10 @@ class _BottomNavBarState extends State<BottomNavBar> {
 
   List<Widget> itemList = [
     const OnboardingScreens(),
-    const Center(child: Text('cart')),
-    SearchScreen(
+    const SearchScreen(
       search: '',
     ),
+    const WishListScreen(),
     const Center(child: Text('setting')),
   ];
   void changePage(int index) {
