@@ -9,7 +9,7 @@ TextStyle appStyle(
   FontWeight fontWeight,
 ) {
   return GoogleFonts.poppins(
-      fontSize: size, color: color, fontWeight: fontWeight);
+      fontSize: size, color: color, fontWeight: fontWeight, );
 }
 
 void showSnackBar(BuildContext context, String content) {

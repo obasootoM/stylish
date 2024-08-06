@@ -4,6 +4,7 @@ import 'package:stylish/features/authentication/signIn/service/sign_in_service.d
 import 'package:stylish/features/splash_screen/splash_screen.dart';
 import 'package:stylish/provider/provider.dart';
 import 'package:stylish/route/route.dart';
+import 'package:stylish/utilis/shimmer_effect.dart';
 
 
 
@@ -38,7 +39,7 @@ class _MyAppState extends State<MyApp> {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: const LandingScreen(),
+        home: const ShimmerEffect(),
         onGenerateRoute: (setting) => generateRoute(setting));
   }
 }
