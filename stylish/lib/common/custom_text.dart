@@ -6,24 +6,29 @@ class CustomText extends StatelessWidget {
       required this.text,
       required this.size,
       this.line,
-      required this.fontWeight, this.color});
+      required this.fontWeight,
+      this.style,
+      this.margin,
+      this.color});
   final String text;
   final double size;
   final FontWeight fontWeight;
   final int? line;
   final Color? color;
+  final FontStyle? style;
+  final EdgeInsets? margin;
   @override
   Widget build(BuildContext context) {
     return Container(
       constraints: BoxConstraints(maxWidth: 190),
-      margin: const EdgeInsets.only(top: 17, left: 10),
+      margin: margin,
       child: Text(
         text,
         style: TextStyle(
             fontFamily: 'Cera-Pro',
             color: color,
             fontSize: size,
-            fontStyle: FontStyle.normal,
+            fontStyle: style,
             overflow: TextOverflow.ellipsis,
             fontWeight: fontWeight),
         overflow: TextOverflow.ellipsis,

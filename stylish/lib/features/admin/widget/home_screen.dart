@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stylish/%20model/product.dart';
 import 'package:stylish/common/common_text.dart';
-import 'package:stylish/const/loading.dart';
 import 'package:stylish/features/admin/service/service.dart';
 import 'package:stylish/features/admin/widget/add_product.dart';
 import 'package:stylish/features/admin/widget/admin_container.dart';

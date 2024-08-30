@@ -8,6 +8,7 @@ import 'package:stylish/route/route.dart';
 
 
 
+
 void main() {
   runApp(MultiProvider(
       providers: [ChangeNotifierProvider(create: (context) => AuthProvider())],

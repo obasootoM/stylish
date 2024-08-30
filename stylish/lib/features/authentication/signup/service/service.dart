@@ -13,7 +13,7 @@ class Service {
       required String password}) async {
     try {
       User user =
-          User(id: '', name: name, email: email, password: password, type: '',token: '');
+          User(id: '', name: name, email: email, password: password, type: '',token: '', cart: []);
       http.Response res = await http.post(Uri.parse("$uri/api/signup"),
           headers: <String, String>{
             'content-type': 'application/json; charset=UTF-8'

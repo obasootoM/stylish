@@ -7,6 +7,7 @@ class User {
   final String password;
   final String type;
   final String token;
+  final List<dynamic> cart;
 
   User(
       {required this.name,
@@ -14,7 +15,8 @@ class User {
       required this.password,
       required this.id,
       required this.token,
-      required this.type});
+      required this.type,
+      required this.cart});
 
   Map<String, dynamic> toMap() {
     return {
@@ -23,19 +25,21 @@ class User {
       'email': email,
       'password': password,
       'type': type,
-      'token': token
+      'token': token,
+      'cart': cart
     };
   }
 
   factory User.fromMap(Map<String, dynamic> map) {
     return User(
-      id: map['_id'] ?? '',
-      name: map['name'] ?? '',
-      email: map['email'] ?? '',
-      password: map['password'] ?? '',
-      type: map['type'] ?? '',
-      token: map['token'] ?? ''
-    );
+        id: map['_id'] ?? '',
+        name: map['name'] ?? '',
+        email: map['email'] ?? '',
+        password: map['password'] ?? '',
+        type: map['type'] ?? '',
+        token: map['token'] ?? '',
+        cart: List<Map<String, dynamic>>.from(
+            map['cart']?.map((x) => Map<String, dynamic>.from(x))));
   }
 
   String toJson() => json.encode(toMap());

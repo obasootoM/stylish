@@ -9,6 +9,7 @@ import 'package:stylish/features/puchase_detailed_screen/screen/purchase_detaile
 import 'package:stylish/features/search_screen/widget/search_container.dart';
 import 'package:stylish/features/onboarding_screen/widget/small_container.dart';
 
+
 class SearchScreen extends StatefulWidget {
   static const routeName = '/search-screen';
   const SearchScreen({super.key, required this.search});
@@ -18,7 +19,6 @@ class SearchScreen extends StatefulWidget {
 }
 
 class _SearchScreenState extends State<SearchScreen> {
-  final TextEditingController _controller = TextEditingController();
   final FocusNode _focusNode = FocusNode();
   List<Product>? _getService;
   final Service _service = Service();
@@ -50,6 +50,7 @@ class _SearchScreenState extends State<SearchScreen> {
   Widget build(BuildContext context) {
     final width = MediaQuery.sizeOf(context).width;
     final height = MediaQuery.sizeOf(context).height;
+  
     return Scaffold(
       backgroundColor: Colors.grey[200],
       appBar: AppBar(
@@ -97,9 +98,10 @@ class _SearchScreenState extends State<SearchScreen> {
                       FocusNode focusNode,
                       Function onFieldSubmitted) =>
                   Container(
-                    decoration: ShapeDecoration(
-                      color: Colors.white,
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))),
+                decoration: ShapeDecoration(
+                    color: Colors.white,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10))),
                 child: TextField(
                   controller: textEditingController,
                   focusNode: focusNode,
@@ -121,11 +123,11 @@ class _SearchScreenState extends State<SearchScreen> {
                     type: MaterialType.canvas,
                     color: Colors.white,
                     child: GridView.builder(
-                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2,
-                      childAspectRatio: 0.8,
-                  crossAxisSpacing: 0.1
-                      ),
-
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: 2,
+                              childAspectRatio: 0.8,
+                              crossAxisSpacing: 0.1),
                       itemCount: options.length,
                       shrinkWrap: true,
                       physics: const AlwaysScrollableScrollPhysics(),
@@ -188,7 +190,6 @@ class _SearchScreenState extends State<SearchScreen> {
                           ),
                         );
                       },
-                      
                     ),
                   ),
                 );
@@ -220,8 +221,7 @@ class _SearchScreenState extends State<SearchScreen> {
           const SizedBox(
             height: 5,
           ),
-          Visibility(
-            child: SearchContainer(search: widget.search))
+          Visibility(child: SearchContainer(search: widget.search))
         ]),
       ),
       // body: Container(

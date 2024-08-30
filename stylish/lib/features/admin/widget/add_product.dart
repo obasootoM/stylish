@@ -10,6 +10,7 @@ import 'package:stylish/utilis/util.dart';
 
 class AddProduct extends StatefulWidget {
   const AddProduct({super.key});
+  
 
   @override
   State<AddProduct> createState() => _AddProductState();

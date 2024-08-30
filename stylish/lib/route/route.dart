@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:stylish/%20model/product.dart';
+import 'package:stylish/features/cart/screen/add_to_cart_screen.dart';
 import 'package:stylish/features/category_screen/screen/category_screen.dart';
 import 'package:stylish/features/onboarding_screen/screen/onboarding_screen.dart';
 import 'package:stylish/features/onboarding_screen/widget/onboard_search_screen.dart';
@@ -7,6 +7,8 @@ import 'package:stylish/features/pageview_screen/screen/pageview_screen.dart';
 import 'package:stylish/features/puchase_detailed_screen/screen/purchase_detailed_screen.dart';
 import 'package:stylish/features/search_screen/screen/search_screen.dart';
 import 'package:stylish/features/wishList/screen/wish_list.dart';
+
+import '../ model/product.dart';
 
 Route<dynamic> generateRoute(RouteSettings routeSettings) {
   switch (routeSettings.name) {
@@ -47,6 +49,10 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
     case WishListScreen.routeName:
       return MaterialPageRoute(
           builder: (_) => const WishListScreen(), settings: routeSettings);
+    case AddToCart.routName:
+    var product = routeSettings.arguments as Product;
+      return MaterialPageRoute(
+          builder: (_) =>  AddToCart(product: product,), settings: routeSettings);
     default:
       return MaterialPageRoute(
           settings: routeSettings,

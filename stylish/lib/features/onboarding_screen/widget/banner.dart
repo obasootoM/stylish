@@ -48,7 +48,7 @@ class Banners extends StatelessWidget {
                         color: Colors.white,
                         size: 15),
                     ArrowButton(
-                      margin: EdgeInsets.only(left: 10, top: 10,bottom: 10),
+                      margin: const EdgeInsets.only(left: 10, top: 10,bottom: 10),
                       text: 'Shop Now',
                       textColor: Colors.white,
                       widths: width * 0.32,
