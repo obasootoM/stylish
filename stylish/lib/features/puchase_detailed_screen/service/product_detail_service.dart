@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:stylish/%20model/product.dart';
@@ -18,10 +17,11 @@ class DetailService {
     try {
       http.Response res = await http.post(Uri.parse('$uri/add/product/rating'),
           headers: <String, String>{
-            'content-type': 'Application/json; charset=UTF-8',
-            'token': provider.user.token
+            'content-type': 'application/json; charset=UTF-8',
+            'x-auth-token': provider.user.token
           },
           body: jsonEncode({'id': product.id, 'rating': rating}));
+     
       HttpResponseService(response: res, context: context, success: () {});
     } catch (e) {
       showSnackBar(context, e.toString());

@@ -11,7 +11,7 @@ app.use(express.json());
 app.use(authRoute);
 app.use(adminRoute);
 app.use(productRoute);
-// app.use(userRoute);
+//app.use(userRoute);
 
 mongoose
 .connect(DB)

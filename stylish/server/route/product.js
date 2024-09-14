@@ -32,7 +32,7 @@ productRoute.post('/add/product/rating',auth, async (req, res) => {
    try{
      const {id, rating} = req.body;
      let product = await Product.findById(id);
-     for(let  i = 0; i<product.rating.length; i++) {
+     for(let i = 0; i<product.rating.length; i++) {
       if(product.rating[i].userId == req.user) {
          product.rating.splice(i,1);
          break;
@@ -43,7 +43,7 @@ productRoute.post('/add/product/rating',auth, async (req, res) => {
          rating,
      }
      product.rating.push(ratingSchema);
-     product = await Product.save();
+     product = await product.save();
      res.json(product);
    }catch(e) {
     res.status(500).json({error: e.message});

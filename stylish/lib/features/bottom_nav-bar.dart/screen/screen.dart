@@ -45,9 +45,8 @@ class _BottomNavBarState extends State<BottomNavBar> {
             children: [
               _bottonNavBar(Icons.home, 'home', 0),
               _bottonNavBar(Icons.favorite, 'wishlist', 1),
-              _bottonNavBar(Icons.shopping_cart, 'search', 2),
-              _bottonNavBar(Icons.search, 'search', 3),
-              _bottonNavBar(Icons.settings, 'setting', 4),
+              _bottonNavBar(Icons.search, 'search', 2),
+              _bottonNavBar(Icons.settings, 'setting', 3),
             ],
           )),
 

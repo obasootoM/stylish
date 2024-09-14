@@ -36,17 +36,23 @@ List<Map<String, dynamic>> imageList = [
 ];
 
 List<Map<String, dynamic>> bannerList = [
-
   {
-    "title" :"50-40% OFF",
-    "subtitle":"Now in (product)\nAll colours",
-  },
-   {
-    "title" :"it\'s Black Friday",
-    "subtitle":"Get your product today\n@70% OFF"
+    "title": "50-40% OFF",
+    "subtitle": "Now in (product)\nAll colours",
   },
   {
-    "title": "Sunday Jingo",
-    "subtitle": "Products are Rolling Out Tod@y"
-  }
+    "title": "it\'s Black Friday",
+    "subtitle": "Get your product today\n@70% OFF"
+  },
+  {"title": "Sunday Jingo", "subtitle": "Products are Rolling Out Tod@y"}
 ];
+
+List<String> choiceTag = [
+  '6 UK',
+  '7 UK',
+  '8 UK',
+  '9 UK',
+  '10 UK'
+];
+
+

@@ -20,6 +20,7 @@ class Service {
             'content-type': 'application/json; charset=UTF-8',
             'x-auth-token': provider.user.token
           });
+      print(res.body);
       HttpResponseService(
           response: res,
           context: context,

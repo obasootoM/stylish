@@ -38,3 +38,8 @@ class ConstImage {
 }
 
 const String uri = 'http://192.168.0.200:3000';
+
+const double total = 0;
+const double minRating = 0;
+
+

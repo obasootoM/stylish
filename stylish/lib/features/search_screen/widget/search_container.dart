@@ -100,7 +100,9 @@ class _SearchContainerState extends State<SearchContainer> {
                             size: 15,
                             text: '\$${product.price}',
                           ),
-                          const RatingBars(star: 0.0)
+                          const RatingBars(
+                            margin: EdgeInsets.only(left: 10),
+                            star: 0.0)
                         ],
                       )),
                 ),

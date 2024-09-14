@@ -184,7 +184,9 @@ class _SearchScreenState extends State<SearchScreen> {
                                       size: 15,
                                       text: '\$${product.price}',
                                     ),
-                                    const RatingBars(star: 0.0)
+                                    const RatingBars(
+                                      margin: EdgeInsets.only(left: 10),
+                                      star: 0.0)
                                   ],
                                 )),
                           ),
@@ -203,7 +205,7 @@ class _SearchScreenState extends State<SearchScreen> {
             children: [
               CommonText(
                   margin: const EdgeInsets.only(left: 20),
-                  text: '${_getService?.length}+ items',
+                  text: '${_getService?.length.toString()}+ items',
                   fontWeight: FontWeight.bold,
                   color: Colors.black,
                   size: 20),

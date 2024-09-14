@@ -1,23 +1,24 @@
 import 'dart:convert';
+import 'package:stylish/%20model/rating.dart';
 
 class Product {
   final String title;
   final String description;
-  final double quantity;
+  final double? quantity;
   final List<String> images;
   final String category;
-  final double price;
+  final double? price;
   final String id;
-  // final List<Rating>? rating;
+  final List<Rating>? rating;
   Product(
       {required this.title,
       required this.description,
-      required this.quantity,
+       this.quantity,
       required this.category,
-      required this.price,
+       this.price,
       required this.id,
       required this.images,
-      // this.rating
+      this.rating
       });
 
   Map<String, dynamic> toMap() {
@@ -29,20 +30,21 @@ class Product {
       'price': price,
       'id': id,
       'images': images,
-      // 'rating': rating
+      'rating': rating
     };
   }
 
   factory Product.fromMap(Map<String, dynamic> map) {
     return Product(
-    //  rating: map['rating'] != null ? List<Rating>.from(map['rating']?.map((x) => Rating.fromMap(x))) : null,
+      rating: map['rating'] != null ? List<Rating>.from(map['rating']?.map((x) => Rating.fromMap(x))) : null,
       title: map['title'] ?? '',
       description: map['description'] as String,
-      quantity: map['quantity']?.toDouble() ?? 0.0,
+      quantity: map['quantity'].toDouble() ?? 0.0,
       category: map['category'] as String,
-      price: map['price']?.toDouble() ?? 0.0,
+      price: map['price'].toDouble() ?? 0.0,
       id: map['_id'],
       images: List<String>.from(map['images'],),
+      
      
     );
   }
